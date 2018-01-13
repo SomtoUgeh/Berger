@@ -1,0 +1,5 @@
+nonso please plug in the html and also particular ..
+the upload btn should be within the image as it is in the  code ..
+i assume its an <a> .. i didnt decide the aftermath of uploading and making changes before saving ..
+if you finish early enough tomorrow .. i can make the changes . but start with this ..
+Thanks and God bless !

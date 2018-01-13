@@ -3,3 +3,5 @@ the upload btn should be within the image as it is in the  code ..
 i assume its an <a> .. i didnt decide the aftermath of uploading and making changes before saving ..
 if you finish early enough tomorrow .. i can make the changes . but start with this ..
 Thanks and God bless !
+
+Also I am really sorry for the naming .. I was in a haste

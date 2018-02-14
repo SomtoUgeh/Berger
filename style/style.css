@@ -4,6 +4,7 @@
 :root {
     --black: #272727;
 }
+
 /* default css*/
 * {
     box-sizing: border-box;
@@ -384,7 +385,11 @@ input#choose-file {
 }
 /* Edit frame end */
 
-/* Media queries */
+/* 
+-----
+Media queries
+----- */
+
 @media (max-width: 1030px) {
     .visualiser__home {
         display: grid;
@@ -468,6 +473,7 @@ input#choose-file {
         padding: 10px 60px;
     }
 }
+
 
 @media (max-width: 850px) {
     .intro {
@@ -584,8 +590,9 @@ input#choose-file {
     }
 }
 
-@media (max-width: 500px) {
 
+
+@media (max-width: 500px) {
     /* Intro page */
     .intro {
         display: grid;

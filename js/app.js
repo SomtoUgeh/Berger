@@ -1,9 +1,7 @@
 // Global Variables & Default Locations
 var map;
-var clientID;
-var clientSecret;
 
-var defaultLocations = [ 
+var defaultLocations = [
     {
         title: '128 Aba Owerri Road, beside Kemjika Filling Station, Abia State',
         location: {
@@ -325,102 +323,21 @@ var defaultLocations = [
             lat: 6.4686529,
             lng: 3.4923618
         }
-    },
- ]
-
-// Default location for several points
-var defaultLocations = [
-    {
-        title: 'Canna Cruz',
-        location: {
-            lat: 36.9863342,
-            lng: -122.0324849
-        }
-    },
-    {
-        title: 'Santa Cruz Naturals',
-        location: {
-            lat: 36.9757459,
-            lng: -121.8882603
-        }
-    },
-    {
-        title: 'KindPeoples Collective',
-        location: {
-            lat: 36.9856965,
-            lng: -121.9827407
-        }
-    },
-    {
-        title: 'Granny Purps',
-        location: {
-            lat: 36.9851404,
-            lng: -121.9659725
-        }
-    },
-    {
-        title: 'Herbal Cruz',
-        location: {
-            lat: 36.9671524,
-            lng: -121.9649442
-        }
-    },
-    {
-        title: 'Central Coast Wellness Center',
-        location: {
-            lat: 37.0721581,
-            lng: -122.0840406
-        }
     }
-];
+]
 
-
-// Working with the foursquare API
+// Working with dataset
  var Location = function(data) {
     var self = this;
     this.name = data.title;
     this.position = data.location;
-    this.URL = '';
-    this.street = '';
-    this.city = '';
-    this.phone = '';
 
     this.visible = ko.observable(true);
-
-    // Credentials for FOURSQUARE Api
-    clientID = 'AEDY4G2EDEFQZUOPU1RZNVMOUX0X25LCTKM0SJQWQPQG24L3';
-    clientSecret = '5Y2UT2PWZRKVXBM0GJ5DBGRAXFK02M45XZVLAMYQSZMQVZWT';
-
-    // Foursquare API endpoint build
-    var fourSquareURL =  'https://api.foursquare.com/v2/venues/search?ll=' + this.position.lat + ',' + this.position.lng + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20170801' + '&query=' + this.name;
-
-    // Gets the data from foursquare and store it into its' own variables.
-    $.getJSON(fourSquareURL).done(function (data) {
-        var results = data.response.venues[0];
-        self.URL = results.url;
-        if (typeof self.URL === 'undefined') {
-            self.URL = "";
-        }
-
-        self.street = results.location.formattedAddress[0];
-        self.city = results.location.formattedAddress[1];
-        self.phone = results.contact.phone;
-        if (typeof self.phone === 'undefined') {
-            self.phone = '';
-        }
-
-    }).fail(function () {
-        $('.venue-list').html('There was an error with the Foursquare API call. Please refresh the page and try again');
-    });
 
     // This is what the infowindow will contain.
     this.contentString =
         '<div class="info-window-content">' +
         '<div class="title"><b>' + data.title + "</b></div>" +
-        '<div class="content"><a href="' + self.URL + '">' + self.URL + "</a></div>" +
-        '<div class="content">' + self.street + "</div>" +
-        '<div class="content">' + self.city + "</div>" +
-        '<div class="content">' + self.phone + "</div>" +
         "</div>";
 
     // Puts the content string inside Infowindow.
@@ -448,10 +365,6 @@ var defaultLocations = [
         self.contentString =
             '<div class="info-window-content">' +
             '<div class="title"><b>' + data.title + "</b></div>" +
-            '<div class="content"><a href="' + self.URL +'">' + self.URL + "</a></div>" +
-            '<div class="content">' + self.street + "</div>" +
-            '<div class="content">' + self.city + "</div>" +
-            '<div class="content"><a href="tel:' + self.phone +'">' + self.phone +"</a></div>" +
             "</div>";
 
         self.infoWindow.setContent(self.contentString);
@@ -483,8 +396,11 @@ function ViewModel(){
 
     // Constructor creates a new map
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: {lat: 36.9863342, lng: -122.0324849},
+        zoom: 7,
+        center: {
+            lat: 9.0820, 
+            lng: 8.6753
+        },
         mapTypeControl: false
     });
 

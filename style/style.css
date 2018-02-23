@@ -407,10 +407,10 @@ input#choose-file {
   height: 40px;
   font-size: 1em;
   padding: 5px 20px;
-  width: 80%;
-  margin-top: 10px;
-  margin-left: 10px;
+  width: 94%;
+  margin: 10px;
   border-radius: 10px;
+  border: none;
 }
 
 .app-container {
@@ -422,6 +422,7 @@ input#choose-file {
 
 .venue-list {
   background-color: #2072ff;
+  overflow: auto;
 }
 
 .map {
